@@ -48,8 +48,7 @@
 						</div>
 						<div class="topbar-menu right-menu">
 							<ul>
-								<li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>
-								<li class="menu-item" ><a title="Register or Login" href="{{route('register')}}">Register</a></li>
+	
 								<li class="menu-item lang-menu menu-item-has-children parent">
 									<a title="English" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu lang" >
@@ -59,20 +58,45 @@
 										<li class="menu-item" ><a title="canada" href="#"><span class="img label-before"><img src="assets/images/lang-can.png" alt="lang-can"></span>Canada</a></li>
 									</ul>
 								</li>
-								<li class="menu-item menu-item-has-children parent" >
-									<a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-									<ul class="submenu curency" >
-										<li class="menu-item" >
-											<a title="Pound (GBP)" href="#">Pound (GBP)</a>
+								
+								@if(Route::has('login'))
+								@auth
+								   @if(Auth::User()->utype === 'ADM')
+										<li class="menu-item menu-item-has-children parent" >
+										<a title="My Account" href="#">My Account ({{Auth::User()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+										<ul class="submenu curency" >
+											<li class="menu-item" >
+												<a title="Dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
+											</li>
+											<li class="menu-item">
+												<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+											</li>
+											<form id="logout-form" action="{{route('logout')}}" method="POST">
+												@csrf
+											</form>
+										</ul>
 										</li>
-										<li class="menu-item" >
-											<a title="Euro (EUR)" href="#">Euro (EUR)</a>
+									@else
+										<li class="menu-item menu-item-has-children parent" >
+										<a title="My Account" href="#">My Account ({{Auth::User()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+										<ul class="submenu curency" >
+											<li class="menu-item" >
+												<a title="Dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
+											</li>
+											<li class="menu-item">
+												<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+											</li>
+											<form id="logout-form" action="{{route('logout')}}" method="POST">
+												@csrf
+											</form>
+										</ul>
 										</li>
-										<li class="menu-item" >
-											<a title="Dollar (USD)" href="#">Dollar (USD)</a>
-										</li>
-									</ul>
-								</li>
+								   @endif								
+							    @else
+								   <li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>
+								   <li class="menu-item" ><a title="Register or Login" href="{{route('register')}}">Register</a></li>																    
+							    @endif
+							   @endif
 							</ul>
 						</div>
 					</div>
