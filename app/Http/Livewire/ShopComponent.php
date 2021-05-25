@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Product;
-
+//use Cart;
 class ShopComponent extends Component
 {
     use WithPagination;
