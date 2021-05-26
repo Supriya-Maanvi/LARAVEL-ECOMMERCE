@@ -37,7 +37,7 @@
                         </div>
                         <div class="price-field sub-total"><p class="price">${{$cart_product->subtotal}}</p></div>
                         <div class="delete">
-                            <a href="#" class="btn btn-delete" title="">
+                            <a href="#" wire:click.prevent="destroy('{{$cart_product->rowId}}')" class="btn btn-delete" title="">
                                 <span>Delete from your cart</span>
                                 <i class="fa fa-times-circle" aria-hidden="true"></i>
                             </a>
@@ -65,8 +65,8 @@
                     <a class="btn btn-checkout" href="checkout.html">Check out</a>
                     <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                 </div>
-                <div class="update-clear">
-                    <a class="btn btn-clear" href="#">Clear Shopping Cart</a>
+                <div class="update-clear">destoryAll
+                    <a class="btn btn-clear" href="#" wire:click.prevent="destroyAll()">Clear Shopping Cart</a>
                     <a class="btn btn-update" href="#">Update Shopping Cart</a>
                 </div>
             </div>
