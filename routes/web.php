@@ -13,6 +13,9 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
+use App\Http\Livewire\Admin\AdminProductComponent;
+use App\Http\Livewire\Admin\AdminAddProductComponent;
+use App\Http\Livewire\Admin\AdminEditProductComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +51,10 @@ Route::middleware(['auth:sanctum', 'verified','authAdmin'])->group(function () {
     Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
     Route::get('/admin/categories/add',AdminAddCategoryComponent::class)->name('admin.addcategories');
     Route::get('/admin/categories/edit/{category_slug}',AdminEditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/products',AdminProductComponent::class)->name('admin.products');
+    Route::get('/admin/product/add',AdminAddProductComponent::class)->name('admin.addproduct');
+    Route::get('/admin/product/edit/{product_slug}',AdminEditProductComponent::class)->name('admin.editproduct');
+
 });
 
 /*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
