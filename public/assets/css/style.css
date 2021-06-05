@@ -53,7 +53,7 @@ Primary use:    Ecommerce
 body{
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
-	color: #444444;
+	color: #367599;
 	overflow-x: hidden;
 }
 img{
@@ -720,7 +720,7 @@ li.menu-item .nav-label.sale-label::before{
 	background: transparent;
 }
 .header-style-1 .primary-nav-section{
-	background: #444444;
+	background: #367599;
 }
 .primary{
 	position: relative;
@@ -744,10 +744,10 @@ li.menu-item .nav-label.sale-label::before{
 	padding: 11px 23px;
 }
 .primary>.menu-item:not(first-child){
-	border-right: 1px solid #555555;
+	border-right: 1px solid #367599;
 }
 .primary>.menu-item:not(.home-icon):hover{
-	background: #555555;
+	background: #5f9cc0;
 }
 .primary .menu-item>a:focus,
 .primary .menu-item>a:active,
@@ -1589,7 +1589,7 @@ li.menu-item .nav-label.sale-label::before{
     width: 100%;
     /*float: left;*/
     text-align: left;
-    background-color: #ff2832;
+    background-color: #367599;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -4220,7 +4220,7 @@ article.single-post blockquote p:last-child::after{
     background-color: #f5f5f5;
     border-radius: 0;
     border: 1px solid #e6e6e6;
-    color: #666666;
+    color: #367599;
     font-size: 14px;
     line-height: 20px;
     font-weight: 600;
@@ -4232,8 +4232,8 @@ article.single-post blockquote p:last-child::after{
 .summary .checkout-info .btn-checkout:hover,
 .summary .update-clear .btn:hover{
     color: #ffffff;
-    background: #333333;
-    border-color: #333333;
+    background: #367599;
+    border-color: #367599;
 }
 .box-in-site.wrap-show-advance-info-box .wrap-products{
     border: 1px solid #e6e6e6;
