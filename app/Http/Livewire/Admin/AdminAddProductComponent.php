@@ -25,14 +25,49 @@ class AdminAddProductComponent extends Component
     public $image;
     public $category_id;
 
-    public function mount(){
+    public function mount()
+    {
         $this->stock_status = 'instock';
         $this->featured = '0';
     }
-    public function generateSlug(){
+
+    public function generateSlug()
+    {
         $this->slug = Str::slug($this->name,'-');
     }
-    public function addProduct(){
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'sale_price' => 'required',
+            'SKU' => 'required',
+            'stock_status' => 'required',
+            'quantity' => 'required|numeric',
+            'image' => 'required|mimes:png,jpeg',     
+            'category_id' => 'required',     
+        ]);
+    }
+
+    public function addProduct()
+    {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'sale_price' => 'required',
+            'SKU' => 'required',
+            'stock_status' => 'required',
+            'quantity' => 'required|numeric',
+            'image' => 'required|mimes:png,jpeg',
+            'category_id' => 'required',  
+        ]);
         $product = new Product();
         $product->name = $this->name;
         $product->slug = $this->slug;
@@ -51,6 +86,7 @@ class AdminAddProductComponent extends Component
         $product->save();
         session()->flash('message','Product added successfully !');
     }
+
     public function render()
     {
         $categories = Category::all();
