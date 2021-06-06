@@ -133,8 +133,11 @@
 								<a href="#" class="link-direction">
 									<i class="fa fa-heart" aria-hidden="true"></i>
 									<div class="left-info">
-										<span class="index">0 item</span>
+										@if(Cart::instance('wishlist')->count() > 0)
+										<span class="index">{{Cart::instance('wishlist')->count()}} item</span>
+										@else
 										<span class="title">Wishlist</span>
+										@endif
 									</div>
 								</a>
 							</div>
@@ -142,8 +145,8 @@
 								<a href="#" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									<div class="left-info">
-										@if(Cart::count() > 0)
-										<span class="index">{{Cart::count()}} items</span>
+										@if(Cart::instance('cart')->count() > 0)
+										<span class="index">{{Cart::instance('cart')->count()}} items</span>
 										@endif
 										<span class="title">CART</span>
 									</div>
