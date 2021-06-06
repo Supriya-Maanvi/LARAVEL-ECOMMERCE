@@ -34,15 +34,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Short Description</label>
-                                <div class="col-md-4">
-                                    <input type="text" wire:model="short_description" class="form-control input-md" placeholder="Short Description"/>
+                                <div class="col-md-4" wire:ignore>
+                                    <input type="text" id="short_description" wire:model="short_description" class="form-control input-md" placeholder="Short Description"/>
                                     @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Description</label>
-                                <div class="col-md-4">
-                                    <input type="text" wire:model="description" class="form-control input-md" placeholder="Description"/>
+                                <div class="col-md-4" wire:ignore>
+                                    <input type="text" id="description" wire:model="description" class="form-control input-md" placeholder="Description"/>
                                     @error('description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
@@ -129,3 +129,30 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(function(){
+            tinymce.init({
+                selector:'#short_description',
+                setup:function(editor){
+                    editor.on('change',function(e){
+                        tinyMCE.triggerSave();
+                        var sd_data = $('#short_description').val();
+                        @this.set('short_description',sd_data);
+                    });
+                }
+            });
+            tinymce.init({
+                selector:'#description',
+                setup:function(editor){
+                    editor.on('change',function(e){
+                        tinyMCE.triggerSave();
+                        var d_data = $('#description').val();
+                        @this.set('description',d_data);
+                    });
+                }
+            });
+        });
+    </script>
+@endpush
