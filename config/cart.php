@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 return [
 
@@ -16,4 +16,4 @@ return [
     'decimal_point' => '.',
     'thousand_seperator' => ''
 ],
-];
+]; 
