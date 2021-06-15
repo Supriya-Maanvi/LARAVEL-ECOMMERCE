@@ -11,7 +11,7 @@ class AdminAddCouponComponent extends Component
     public $type;
     public $value;
     public $cart_value;
-    public $expriy_date;
+    public $expiry_date;
 
     public function updated($fields)
     {
@@ -20,6 +20,7 @@ class AdminAddCouponComponent extends Component
             'type' => 'required',
             'value' => 'required|numeric',
             'cart_value' => 'required|numeric',
+            'expiry_date' => 'required',
         ]);
     }
     public function storeCoupon()
@@ -29,13 +30,14 @@ class AdminAddCouponComponent extends Component
             'type' => 'required',
             'value' => 'required|numeric',
             'cart_value' => 'required|numeric',
+            'expiry_date' => 'required',
         ]);
         $coupon = new Coupon();
         $coupon->code = $this->code;
         $coupon->type = $this->type;
         $coupon->value = $this->value;
         $coupon->cart_value = $this->cart_value;
-        $coupon->expriy_date = $this->expriy_date;
+        $coupon->expiry_date = $this->expiry_date;
         $coupon->save();
         session()->flash('message','Coupon has been add successfully !');
     }
