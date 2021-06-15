@@ -1,3 +1,2 @@
 <?php
-//service
-?>
+service
