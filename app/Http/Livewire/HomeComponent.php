@@ -22,6 +22,7 @@ class HomeComponent extends Component
         $no_of_products = $category->no_of_products;
         $sproducts = Product::where('sale_price','>',0)->inRandomOrder()->get()->take(8);
         $sale = Sale::find(1);
+        //return view('livewire.home-component',['sliders'=>$sliders])->layout('layouts.base');
         return view('livewire.home-component',['sliders'=>$sliders,'lproducts'=>$lproducts,'categories'=>$categories,'no_of_products'=>$no_of_products,'sproducts'=>$sproducts,'sale'=>$sale])->layout('layouts.base');
     }
 }
