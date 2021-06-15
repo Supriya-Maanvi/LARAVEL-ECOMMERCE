@@ -11,6 +11,7 @@ class AdminAddCouponComponent extends Component
     public $type;
     public $value;
     public $cart_value;
+    public $expriy_date;
 
     public function updated($fields)
     {
@@ -34,6 +35,7 @@ class AdminAddCouponComponent extends Component
         $coupon->type = $this->type;
         $coupon->value = $this->value;
         $coupon->cart_value = $this->cart_value;
+        $coupon->expriy_date = $this->expriy_date;
         $coupon->save();
         session()->flash('message','Coupon has been add successfully !');
     }
